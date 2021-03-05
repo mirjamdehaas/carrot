@@ -31,9 +31,9 @@ First, the Choregraphe projects in the animalexperimentservice/robot_behaviors d
 
 To run the system, use the following commands: python connectionManager/tablet/server.py --robotIP [robotip] --computerIP [ip_sys]
 
-start.py -i [robotip] -s [ip_sys] -c [condition] -v 1
+start.py -i [robotip] -s [ip_sys] -c [condition] -v 0 -r [condition]
 
-Replace [robotip] with the ip address of your NAO robot on the network, [ip_sys] with the ip of your computer and [condition] should be one of the following: 1 - no feedback 2 - punishment 3 - reward
+Replace [robotip] with the ip address of your NAO robot on the network, [ip_sys] with the ip of your computer and [condition] should be one of the following: 11 - no feedback 21 - punishment 31 - reward
 
 Finally, you can open WoZControl.exe to start the experiment. If you want to run this control panel from a different machine than the companion tablet game and other modules, make sure to include robotip.js (in the root directory) so that it knows where to connect to and change the IP address in the control panel to the ip address of the tablet, default is 127.0.0.1. Make sure you add a semicolon in between the child's name, participant number and robot-name. To start the experiment, click on Connect, Sync (you will hear a sound) and on Start Lesson.
 
