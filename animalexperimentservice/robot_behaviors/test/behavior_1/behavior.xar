@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ChoregrapheProject xmlns="http://www.aldebaran-robotics.com/schema/choregraphe/project.xsd" xar_version="3">
+    <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s behavior. Highest level possible." x="0" y="0">
+        <bitmap>media/images/box/root.png</bitmap>
+        <script language="4">
+            <content>
+                <![CDATA[]]>
+</content>
+        </script>
+        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+        <Timeline enable="0">
+            <BehaviorLayer name="behavior_layer1">
+                <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                        <Box name="test" id="2" localization="8" tooltip="" x="481" y="243">
+                            <bitmap>media/images/box/box-python-script.png</bitmap>
+                            <script language="4">
+                                <content>
+                                    <![CDATA[import random
+import sys
+import time
+from naoqi import ALProxy
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #put initialization code here
+        pass
+
+    def onUnload(self):
+        #put clean-up code here
+        pass
+
+    def onInput_onStart(self):
+        proxy = ALProxy("ALLeds")
+        color1 = "blue"
+        color2 = "blue"
+        color3 = "white"
+        #You can select from these choices : "blue", "green", "yellow", "white", "cyan", "magenta", "red"
+
+        duration = 0.1
+        #duration is still not used in this version. Might edit soon
+
+        i = 0 #do not edit this
+
+#########################################################################################################################
+
+    #Eyes sections, chest and foot LEDs changes colors simultaneously from color1 to color2
+
+#        names1 = ["FaceLed0", "FaceLed2", "FaceLed4", "FaceLed6", "ChestLeds", "FeetLeds"]
+#        names2 = ["FaceLed1", "FaceLed3", "FaceLed5", "FaceLed7"]
+#        proxy.createGroup("pair",names1)
+#        proxy.createGroup("impair",names2)
+
+        while(i <= 50):
+#            proxy.fadeRGB("pair",color1,0.0), proxy.fadeRGB("impair",color2,0.0)
+#            time.sleep(0.1)
+#            proxy.fadeRGB("impair",color1,0.0), proxy.fadeRGB("pair",color2,0.0)
+            time.sleep(0.1)
+           # proxy.off("FaceLeds")
+            proxy.setIntensity("FaceLeds", 0.5)
+            i = i + 1
+            continue
+
+
+
+#########################################################################################################################
+
+    #Eyes sections, chest and foot LEDs changes colors simultaneously with brief pause from color1 to color2
+
+#        names1 = ["FaceLed0", "FaceLed2", "FaceLed4", "FaceLed6", "ChestLeds", "FeetLeds"]
+#        names2 = ["FaceLed1", "FaceLed3", "FaceLed5", "FaceLed7"]
+#        proxy.createGroup("pair",names1)
+#        proxy.createGroup("impair",names2)
+
+#       while(i <= 25):
+#            proxy.fadeRGB("pair",color1,0.1), proxy.fadeRGB("impair",color2,0.1)
+#            time.sleep(0.1)
+#            proxy.fadeRGB("impair",color1,0.1), proxy.fadeRGB("pair",color2,0.1)
+#            time.sleep(0.1)
+
+#            i = i + 1
+#            continue
+
+
+#########################################################################################################################
+
+    #Can't define, but looks cool, so I'll let this one here
+
+#        names1 = ["FaceLed0", "FaceLed2", "FaceLed4", "FaceLed6", "ChestLeds", "FeetLeds"]
+#        names2 = ["FaceLed1", "FaceLed3", "FaceLed5", "FaceLed7"]
+#        proxy.createGroup("pair",names1)
+#        proxy.createGroup("impair",names2)
+
+#       while(i <= 25):
+#            proxy.fadeRGB("pair",color1,0.1)
+#            proxy.fadeRGB("impair",color2,0.1)
+#            proxy.fadeRGB("pair",color2,0.1)
+#            proxy.fadeRGB("impair",color1,0.1)
+
+#            i = i + 1
+#            continue
+
+#########################################################################################################################
+
+    #Change Eyes sections, chest and foot LEDs color clockwise (or anti-clockwise) from color1 to color2
+
+#        names1 = ["FaceLed0", "FaceLed2", "FaceLed4", "FaceLed6", "ChestLeds", "FeetLeds"]
+#        names2 = ["FaceLed1", "FaceLed3", "FaceLed5", "FaceLed7"]
+#        proxy.createGroup("pair",names1)
+#        proxy.createGroup("impair",names2)
+#        proxy.fadeRGB("pair",color1,0.0), proxy.fadeRGB("impair",color2,0.0)
+
+#        while(i <= 5):
+#            proxy.fadeRGB("FaceLed0",color2,0.1)
+#            proxy.fadeRGB("FaceLed1",color1,0.1)
+#            proxy.fadeRGB("FaceLed2",color2,0.1)
+#            proxy.fadeRGB("FaceLed3",color1,0.1)
+#            proxy.fadeRGB("FaceLed4",color2,0.1)
+#            proxy.fadeRGB("FaceLed5",color1,0.1)
+#            proxy.fadeRGB("FaceLed6",color2,0.1)
+#            proxy.fadeRGB("FaceLed7",color1,0.1)
+#            proxy.fadeRGB("FeetLeds",color2,0.1)
+#            proxy.fadeRGB("ChestLeds",color2,0.1)
+
+#            proxy.fadeRGB("FaceLed0",color1,0.1)
+#            proxy.fadeRGB("FaceLed1",color2,0.1)
+#            proxy.fadeRGB("FaceLed2",color1,0.1)
+#            proxy.fadeRGB("FaceLed3",color2,0.1)
+#            proxy.fadeRGB("FaceLed4",color1,0.1)
+#            proxy.fadeRGB("FaceLed5",color2,0.1)
+#            proxy.fadeRGB("FaceLed6",color1,0.1)
+#            proxy.fadeRGB("FaceLed7",color2,0.1)
+#            proxy.fadeRGB("FeetLeds",color1,0.1)
+#            proxy.fadeRGB("ChestLeds",color1,0.1)
+
+#            i = i + 1
+#            continue
+#        self.onStopped()
+
+#########################################################################################################################
+
+    #Randomly changes all LEDs color from cyan to color1 to color2 and color3
+#        while(i <= 5):
+#            proxy.fadeRGB("AllLeds",color1,0.2)
+#            proxy.fadeRGB("AllLeds",color2,0.2)
+#            proxy.fadeRGB("AllLeds",color3,0.2)
+#            i = i + 1
+#            continue
+
+
+######################################################################################
+
+    #(Eyes LEDs and Chest LED randomly change color from yellow, red and green)
+
+        #proxy.rasta(5)
+
+######################################################################################
+
+    #(Randomly changes colors from lots of color)
+
+        #proxy.randomEyes(5)
+
+######################################################################################
+
+        pass
+
+#################################################################
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box]]>
+</content>
+                            </script>
+                            <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                            <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                            <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                            <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+                        </Box>
+                        <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
+                        <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
+                    </Diagram>
+                </BehaviorKeyframe>
+            </BehaviorLayer>
+        </Timeline>
+    </Box>
+</ChoregrapheProject>

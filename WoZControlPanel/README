@@ -1,0 +1,17 @@
+This git contains the latest version of the Study Control-Panel. If you don't want to install Visual Studio you just can use the .exe in the WoZControl\bin\Release folder.
+
+Important things:
+    - If you want to move the ControlPanel you have to copy the .config file. This file is for storing the preferred language selection.
+    - You will need an folder C:/l2tor/memories where the GUI is searching for stored memories.
+      The interactionmanager will store them in that directory (first step too a centralized storage of files)
+    - If you connect to the connectionmanager, you will get notifications about other running modules. This can take up to 5 seconds.
+    - To start the interaction, when all necessary modules are loaded, you first have to load or create a memory for the new child (therefore the interactionmanager is required)
+    - After loading/creating a memory you can use the "Start Lesson" button to start the interaction. Most of the other buttons are still out of function.
+
+NEWS!!! Checkpoint system:
+    - If you load a memory you will see the last status of the interaction in the down most info section. So IF a crash was there, it will show that the
+      previous session has NOT be finished and if a checkpoint was found for that session the task id and subtask id will be shown from where the interaction will go on.
+    - If a checkpoint was found the "Continue Lesson" button is activated and you can continue the lesson. But for the case you get stuck, because something with the checkpoint is wrong
+      you can start the session from the beginning again by pressing "Start Lesson" as normal.
+    - If NO checkpoint was found but the system crashed and the child is in the mid of the interaction --> An info will be shown that there is no checkpoint available to be loaded and
+      the session will start from the beginning (the "Continue Lesson" button also will be disabled.
